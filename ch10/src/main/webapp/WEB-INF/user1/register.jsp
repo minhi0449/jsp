@@ -3,15 +3,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>User2::register</title>
+	<title>User1::register</title>
 </head>
 <body>
-	<h3>User2 등록</h3>
-	 
-	<a href="/ch06/1.JDBCTest.jsp">처음으로</a>
-	<a href="/ch06/user1/resgister.jsp">등록</a>
+	<h3>User1 등록</h3>
 	
-	<form action="/ch06/user1/registerProc.jsp" method="post">
+	<a href="/ch10/">처음으로</a>
+	<a href="/ch10/user1/list.do">등록</a>
+	
+	<form action="/ch10/user1/register.do" method="post">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
@@ -34,15 +34,14 @@
 				<td><input type="number" name="age"/></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="rignt"">
-					<input type="submit" value="전송하기" />
+				<td colspan="2" align="right">
+					<input type="submit" value="등록하기"/>
 				</td>
 			</tr>
 		</table>
 	
-	
-	
 	</form>
+	
 	
 	
 </body>

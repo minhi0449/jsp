@@ -1,35 +1,30 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="shop.CustomerVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.mysql.cj.xdevapi.Statement"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
-<%@page import="javax.naming.Context"%>
 <%@page import="javax.naming.InitialContext"%>
-<%@page import="javax.swing.text.AbstractDocument.Content"%>
+<%@page import="javax.naming.Context"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	
-	List<CustomerVO> customers = new ArrayList<>();
-	
-	
-	try{
+	List<CustomerVO> customers = new ArrayList<>(); 
+
+	try {
 		// 1단계 - JNDI 서비스 객체 생성
 		Context initCtx = new InitialContext();
-		Context ctx = (Context) initCtx.lookup("java:comp/env");
+		Context ctx = (Context) initCtx.lookup("java:comp/env"); // JNDI 기본 환경 이름(고정값)
 		
 		// 2단계 - 커넥션 풀에서 커넥션 객체 가져오기
-		// DataSource 기억
-		// Connection conn 의 conn 결국 메모리 거덩?
-		// 수십만명이 접속한다고 생각해보라구
-		DataSource ds = (DataSource) ctx.lookup("jdbc/shop");
+		DataSource ds = (DataSource) ctx.lookup("jdbc/shop"); // <-- 톰캣 설정 파일(Servers > context.xml)에 설정한 커넥션풀 이름   
 		Connection conn = ds.getConnection();
 		
-		// 3단계 - SQL 실행 객체 생셩
-		Statement stmt= conn.createStatement();
+		// 3단계 - SQL실행 객체 생성
+		Statement stmt = conn.createStatement();
 		
-		// 4단계 - SQL 실행
+		// 4단계 - SQL실행
 		ResultSet rs = stmt.executeQuery("select * from customer");
 		
 		// 5단계 - 결과처리
@@ -40,6 +35,7 @@
 			vo.setHp(rs.getString(3));
 			vo.setAddr(rs.getString(4));
 			vo.setRdate(rs.getString(5));
+			customers.add(vo);
 		}
 		
 		// 6단계 - 커넥션 반납
@@ -50,15 +46,7 @@
 	}catch(Exception e){
 		e.printStackTrace();
 	}
-	
-
-
-
 %>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,8 +68,9 @@
 			<th>가입일</th>
 			<th>관리</th>
 		</tr>
+		
+		<% for(CustomerVO vo : customers){ %>
 		<tr>
-			<%= for(CustomerVO vo : customers) { %>
 			<td><%= vo.getCustId() %></td>
 			<td><%= vo.getName() %></td>
 			<td><%= vo.getHp() %></td>
@@ -89,12 +78,10 @@
 			<td><%= vo.getRdate() %></td>
 			<td>
 				<a href="#">수정</a>
-				<a href="#">삭제</a>
+				<a href="">삭제</a>
 			</td>
 		</tr>
 		<% } %>
 	</table>
-	
-	
 </body>
 </html>

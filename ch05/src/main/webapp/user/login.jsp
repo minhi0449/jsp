@@ -1,3 +1,4 @@
+<%@page import="sub1.UserVO"%>
 <%@page import="user1.UserVO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%

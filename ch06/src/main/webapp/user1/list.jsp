@@ -109,7 +109,7 @@
 			<td><%= vo.getBirth() %></td>
 			<td><%= vo.getHp() %></td>
 			<td><%= vo.getAge() %></td>
-			<td>
+			<td> 
 				<a href="/ch06/user1/modify.jsp?uid=<%= vo.getUid() %>">수정</a>
 				<a href="/ch06/user1/delete.jsp?uid=<%= vo.getUid() %>" class="del">삭제</a>
 			</td>
