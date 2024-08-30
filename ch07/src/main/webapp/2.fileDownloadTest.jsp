@@ -69,7 +69,7 @@
 		<tr>
 			<td><%= vo.getNo() %></td>
 			<td><%= vo.getUid() %></td>
-			<td><%= vo.getName() %></td>
+			<td><%= vo.getName() %></td> 
 			<td><%= vo.getOname() %></td>
 			<td><%= vo.getSname() %></td>
 			<td><%= vo.getRdate().substring(0, 10) %></td>
