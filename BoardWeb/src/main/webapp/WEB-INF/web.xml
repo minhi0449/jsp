@@ -12,7 +12,7 @@
   
   <servlet>
   	<servlet-name>loginProcess</servlet-name>
-  	<servlet-class>com.ssamz.web.LoginServlet</servlet-class>
+  	<servlet-class>com.ssamz.web.user.LoginServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
