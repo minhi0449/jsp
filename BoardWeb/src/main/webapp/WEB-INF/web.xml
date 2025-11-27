@@ -13,6 +13,7 @@
   <servlet>
   	<servlet-name>loginProcess</servlet-name>
   	<servlet-class>com.ssamz.web.user.LoginServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
