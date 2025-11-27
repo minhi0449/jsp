@@ -11,8 +11,12 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public LoginServlet() {
-    	System.out.println("===> LoginServlet 생성");
+//    public LoginServlet() {
+//    	System.out.println("===> LoginServlet 생성");
+//    }
+	
+	public LoginServlet(String servletName) {
+    	System.out.println("===> " + servletName + "생성");
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,5 +29,5 @@ public class LoginServlet extends HttpServlet {
 		// System.out.println(9/0);
 		System.out.println("---> POST 방식의 요청 처리");
 	}
-
+	
 }
