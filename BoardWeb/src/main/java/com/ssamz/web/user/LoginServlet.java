@@ -19,6 +19,11 @@ public class LoginServlet extends HttpServlet {
     	System.out.println("===> " + servletName + "생성");
     }
 
+	//서블릿 콜백 메소드 생성
+	public void init() throws ServletException {
+		System.out.println("---> init 호출");
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("---> GET 방식의 요청 처리");
