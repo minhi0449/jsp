@@ -7,17 +7,18 @@
   <display-name>BoardWeb</display-name>
   
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>login.html</welcome-file>
   </welcome-file-list>
-  
+  <!--  
   <servlet>
-  	<servlet-name>loginProcess</servlet-name>
+  	<servlet-name>login</servlet-name>
   	<servlet-class>com.ssamz.web.user.LoginServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>loginProcess</servlet-name>
-  	<url-pattern>/loginProcess</url-pattern>
+  	<servlet-name>login</servlet-name>
+  	<url-pattern>/login.do</url-pattern>
   </servlet-mapping>
+  -->
 </web-app>
